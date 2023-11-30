@@ -26,10 +26,10 @@ public class RouletteController : MonoBehaviour
         //? Input.@@@ で 〇〇を入力すると となる。今回はMouseBottonDown(マウスを押した瞬間)
         //? ちなみに、MBotton(マウスを押してる間)、MBDown(マウスを押した瞬間)、MBUp(マウスを離した瞬間)
         //? ちなみのちなみに、MBD(0) の 0 は左クリックのナンバリングを指す。
-        if(Input.GetMouseButton(0))
-        {
-            this.rotSpeed = addRotSpeed;
-        }
+        // if(Input.GetMouseButton(0))
+        // {
+        //     this.rotSpeed = addRotSpeed;
+        // }
         //! 遊びで追加。GMBでかつif-else書くと、押してる時に回って、離すと止まるようになる。
         // else
         // {
@@ -41,5 +41,9 @@ public class RouletteController : MonoBehaviour
 
         //! ルーレットを減速させる
         this.rotSpeed *= 0.96f;
+    }
+    
+    public void ClickBotton(){
+        this.rotSpeed = addRotSpeed;
     }
 }
