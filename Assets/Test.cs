@@ -12,12 +12,12 @@ public class Test : MonoBehaviour
         playerPos.y += 5.0f;
         Debug.Log(playerPos);
         Debug.Log(playerPos.magnitude);
-
+        Debug.Log(playerPos.normalized);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 }
