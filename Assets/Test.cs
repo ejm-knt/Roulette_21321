@@ -11,7 +11,8 @@ public class Test : MonoBehaviour
         playerPos.x += 8.0f;
         playerPos.y += 5.0f;
         Debug.Log(playerPos);
-        
+        Debug.Log(playerPos.magnitude);
+
     }
 
     // Update is called once per frame
