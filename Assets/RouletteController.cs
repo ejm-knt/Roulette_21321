@@ -7,6 +7,12 @@ public class RouletteController : MonoBehaviour
     // Start is called before the first frame update
     float rotSpeed = 0; //* 回転速度
 
+    // inspectorに表示させることで変数の変更を簡易的に行うことが出来る
+    // public float addRotSpeed;
+
+    // [SerializeField] を付けると、publicにしなくてもinspectorに表示させることが可能
+    [SerializeField] float addRotSpeed;
+
     void Start()
     {
         //! FPSを60に固定
@@ -22,7 +28,7 @@ public class RouletteController : MonoBehaviour
         //? ちなみのちなみに、MBD(0) の 0 は左クリックのナンバリングを指す。
         if(Input.GetMouseButton(0))
         {
-            this.rotSpeed = 10;
+            this.rotSpeed = addRotSpeed;
         }
         //! 遊びで追加。GMBでかつif-else書くと、押してる時に回って、離すと止まるようになる。
         // else
