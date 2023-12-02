@@ -4,39 +4,25 @@ using UnityEngine;
 
 public class ArrowController : MonoBehaviour
 {
-
-    public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
+        // フレームごとに等速で落下させる
         transform.Translate(0,-0.1f,0);
 
-        if(transform.position.y < -5.0f)
-        {
-            Destroy(gameObject);
-        }
-
-        Vector2 p1 = transform.position;
-        Vector2 p2 = this.player.transform.position;
-        Vector2 dir = p1- p2;
-        float d = dir.magnitude;
-        float r1 = 0.5f;
-        float r2 = 1.0f;
-
-        if (d < r1 +r2)
-        {
+        // 画面外に出たらオブジェクトを破棄する
+        if(transform.position.y < -5.0f){
             Destroy(gameObject);
         }
     }
 
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     Destroy(gameObject);
-    // }
+    // 他のオブジェクトのコライダーに当たった時実行
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.name == "player"){
+            // 監督スクリプトにプレイヤーと衝突したことを伝える
+            GameObject director = GameObject.Find("GameDirector_CE");
+            director.GetComponent<GameDirector_CE>().DecreaseHP();
+            // this.GameDirector.GetComponent<GameDirector_CE>().DecreaseHP(); //無理だった
+            Destroy(gameObject);
+        }
+    }
 }

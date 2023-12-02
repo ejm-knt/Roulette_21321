@@ -13,6 +13,8 @@ public class PlayeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
         //右矢印押した時
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -24,5 +26,13 @@ public class PlayeController : MonoBehaviour
         {
             transform.Translate(3,0,0); //右に3動く
         }
+    }
+
+    public void LButtonDown(){
+        transform.Translate(-3, 0, 0);
+    }
+
+    public void RButtonDown(){
+        transform.Translate(3, 0, 0);
     }
 }

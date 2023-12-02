@@ -5,8 +5,8 @@ using UnityEngine;
 public class ArrowGenerator : MonoBehaviour
 {
     public GameObject arrowPrefab;
-    float span = 1.0f;
-    float delta = 0;
+    float span = 1.0f; //矢の生成間隔
+    float delta = 0;   //前回の生成時間をチェックする用
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class ArrowGenerator : MonoBehaviour
     void Update()
     {
         this.delta += Time.deltaTime;
-        if(this.delta > this.span)
+        if(this.delta > this.span) // 前回の生成から1秒経っていたら
         {
             this.delta = 0;
             GameObject go = Instantiate(arrowPrefab);

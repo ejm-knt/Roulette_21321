@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 using UnityEngine.UI;
 
 
-public class GameDirector : MonoBehaviour
+public class GameDirector_SC : MonoBehaviour
 {
     public GameObject car;
     public GameObject flag;
