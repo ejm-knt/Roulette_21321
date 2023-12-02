@@ -34,6 +34,9 @@ public class GameDirector_CE : MonoBehaviour
         this.hpImage.fillAmount -= 0.1f;
             if(hpImage.fillAmount <= 0.0f){
             gameOverText.SetActive(true);
+            //! timeScale = 1 => 1倍速で時間経過。
+            //! timeScale = 0 => 0倍速 => つまりゲーム停止。
+            //! timeScaleの適応範囲は「Time」に関連する全てなので、移動処理とかは適応外。(GameOver後も動ける)
             Time.timeScale = 0;
         }
     }
