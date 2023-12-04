@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/ClimbCloud/GameScene.unity
+    guid: f018718f1c660c94c9bf5dbe63d8050e
+  - enabled: 1
+    path: Assets/ClimbCloud/ClearScene.unity
+    guid: e042168e15b78ce41bd2728623e7ba91
   m_configObjects: {}
