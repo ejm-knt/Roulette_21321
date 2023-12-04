@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerControllerCC : MonoBehaviour
@@ -55,6 +54,5 @@ public class PlayerControllerCC : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("ゴール");
-        SceneManager.LoadScene("ClearScene");
     }
 }
