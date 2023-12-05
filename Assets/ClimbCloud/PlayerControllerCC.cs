@@ -27,8 +27,9 @@ public class PlayerControllerCC : MonoBehaviour
         // ジャンプ
         if (Input.GetKeyDown(KeyCode.Space) && this.rigid2D.velocity.y == 0)
         {
-            this.animator.SetTrigger("JumpTrigger");
             this.rigid2D.AddForce(transform.up * this.jumpForce);
+            this.animator.SetTrigger("JumpTrigger");
+            this.animator.SetBool("Ground", false);
         }
         // 左右移動
         int key = 0;
@@ -50,14 +51,15 @@ public class PlayerControllerCC : MonoBehaviour
         }
 
         //プレイヤーの速度に応じてアニメーション速度を変える
-        if (this.rigid2D.velocity.y == 0)
-        {
-            this.animator.speed = speedx / 2.0f;
-        }
-        else
-        {
-            this.animator.speed = 1.0f;
-        }
+        this.animator.SetFloat("Walk", speedx / 2.0f);
+        // if (this.rigid2D.velocity.y == 0)
+        // {
+        //     this.animator.speed = speedx / 2.0f;
+        // }
+        // else
+        // {
+        //     this.animator.speed = 1.0f;
+        // }
 
         // 画面外に出た場合は最初から
         if (transform.position.y < -10)
@@ -66,9 +68,17 @@ public class PlayerControllerCC : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("ゴール");
-        SceneManager.LoadScene("ClearScene");
+        switch (other.gameObject.tag)
+        {
+            case "Cloud":
+                animator.SetBool("Ground", true);
+                break;
+            case "Goal":
+                Debug.Log("ゴール");
+                SceneManager.LoadScene("ClearScene");
+                break;
+        }
     }
 }
